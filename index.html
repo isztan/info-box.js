@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Info Box</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/info-box.js"></script>
+<link rel="stylesheet" href="css/index.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="css/info-box.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+<div class="container">
+  <h1>Info-Box.js</h1>
+  <p>Info boxes are popovers that provide information about a specific item, it can load data from a specific url or from a given text or html. <strong>info-box.js</strong> is a jQuery plugin that allows show a info box popover easily.</p>
+  <p>You can download the info-box.js project from <a href="http://github.com/rigoneri/info-box.js">GitHub</a>.</p>
+  <h2>Examples</h2>
+  <div>
+    <div class="ib-examples">
+      <div class="ib-top-example"><img src="imgs/info-icon.png" class="info-box-icon" /></div>
+      <div class="ib-bottom-example"><img src="imgs/info-icon.png" class="info-box-icon" /></div>
+    </div>
+    <div class="ib-examples">
+      <div class="ib-right-example"><img src="imgs/info-icon.png" class="info-box-icon" /></div>
+      <div class="ib-left-example"><img src="imgs/info-icon.png" class="info-box-icon" /></div>
+    </div>
+  </div>
+  <h2>How to use</h2>
+  <code class="code">$('#item').infoBox({url:'/popovers/example.html #example-item'});</code>
+  <h3>Options</h3>
+  <table>
+    <thead>
+     <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th width="80">Default</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><strong>url</strong></td>
+      <td>string</td>
+      <td>null</td>
+      <td>URL to fetch the content of info-box. The url can contain the selector of the item you want to import from that page. <code>http://awesomeurlexample.com #example-item</code></td>
+    </tr>
+    <tr>
+      <td><strong>html</strong></td>
+      <td>string</td>
+      <td>null</td>
+      <td>If no url is specified, you can pass in the html or plain text you want to display in the info-box.</td>
+    </tr>
+    <tr>
+      <td><strong>add_icon</strong></td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>Adds an icon to the given element. If set to false the element needs to have a child or sibling element with the class name of <code>info-box-icon</code></td>
+    </tr>
+    <tr>
+      <td><strong>icon_image</strong></td>
+      <td>string</td>
+      <td>null</td>
+      <td>The name of the image of the icon that will be added.</td>
+    </tr>
+    <tr>
+      <td><strong>icon_text</strong></td>
+      <td>string</td>
+      <td>null</td>
+      <td>If you don't want to use an image for the icon you can provide a text value instead. It will generate a link for the given url settings.</td>
+    </tr>
+    <tr>
+      <td><strong>icon_in_element</strong></td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>Indicates if the icon is inside of the given element or not. If set to true the icon will be a child element if set to false the icon will be a sibling element.</td>
+    </tr>
+    <tr>
+      <td><strong>position</strong></td>
+      <td>string</td>
+      <td>top</td>
+      <td>Indicates where the info-box will be placed in relation to the icon. Possible values: <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code></td>
+    </tr>
+    <tr>
+      <td><strong>width</strong></td>
+      <td>number</td>
+      <td>200</td>
+      <td>The pixel width of the info-box content.</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td>number</td>
+      <td>3</td>
+      <td>The pixel size of the gap between the icon and the toolip.</td>
+    </tr>
+    <tr>
+      <td><strong>arrow_size</strong></td>
+      <td>number</td>
+      <td>7</td>
+      <td>The pixel size of info-box popover arrow, it should be the same value as the one in the style.</td>
+    </tr>
+    <tr>
+      <td><strong>top_bottom_arrow_offset</strong></td>
+      <td>number</td>
+      <td>30</td>
+      <td>This is the number in pixels that is set on the LESS/CSS file for the top and bottom triangles. It indicates how far from the left will the triangle be placed.</td>
+    </tr>
+    <tr>
+      <td><strong>always_show</strong></td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>If set to true the info-box will appear on load and will not disappear on click.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h2>Credit</h2>
+  <p>Written by <a href="http://twitter.com/rigoneri">@rigoneri</a></p>
+<script type="text/javascript">
+/*<![CDATA[*/
+$(function () {
+  setTimeout(function() {
+    $('.ib-top-example').infoBox({html:'<p>This is an example of a info-box that is displayed above an icon.</p>', position: 'top', icon_in_element: true, always_show:true, });
+    $('.ib-bottom-example').infoBox({html:'<p>This is an example of a info-box that is displayed below an icon.</p>', position: 'bottom', icon_in_element: true, always_show:true});
+    $('.ib-right-example').infoBox({html:'<p>This is an example of a info-box that is displayed to the right of an icon.</p>', position: 'right', icon_in_element: true, always_show:true});
+    $('.ib-left-example').infoBox({html:'<p>This is an example of a info-box that is displayed to the left of an icon.</p>', position: 'left', icon_in_element: true, always_show:true});
+  }, 1000);
+});
+/*]]>*/
+</script>
+</body>
+</html>

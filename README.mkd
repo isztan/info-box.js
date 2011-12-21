@@ -1,0 +1,16 @@
+info-box.js
+===========
+
+Info boxes are popovers that provide information about a specific item, it can load data from a specific url or from a given text or html. info-box.js is a jQuery plugin that allows show a info box popover easily.
+
+Examples and Documentation
+--------------------------
+
+[info-box.js examples](http://rigoneri.github.com/info-box.js)
+
+
+Credit
+------
+
+info-box.js was developed by [@rigoneri]
+
