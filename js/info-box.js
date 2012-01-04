@@ -1,5 +1,5 @@
 /*
- * info-box.js v1.0.0, 12-21-2011
+ * info-box.js v1.0.1, 12-21-2011
  * 
  * @author: Rodrigo Neri (@rigoneri)
  * 
@@ -33,7 +33,7 @@
       html : null,
       add_icon: false,
       icon_in_element: false,
-      icon_image: null,
+      icon_image_url: null,
       icon_text: null,
       position: 'top',
       width: 200,
@@ -53,7 +53,7 @@
           icon_url = settings.url ? settings.url.replace(' ', '') : '#'; 
           icon = $('<a href="' + icon_url + '" class="info-box-icon">' + settings.icon_text + '</span>');
         }
-        else if (settings.icon_image) {
+        else if (settings.icon_image_url) {
           icon = $('<img src="' + settings.icon_image_url + '" class="info-box-icon" />');
         }
     
