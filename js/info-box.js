@@ -1,5 +1,5 @@
 /*
- * info-box.js v1.0.1, 12-21-2011
+ * info-box.js v1.0.1, 01-03-2012
  * 
  * @author: Rodrigo Neri (@rigoneri)
  * 
