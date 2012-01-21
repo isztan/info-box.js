@@ -1,5 +1,5 @@
 /*
- * info-box.js v1.0.1, 01-03-2012
+ * info-box.js v1.0.2, 01-21-2012
  * 
  * @author: Rodrigo Neri (@rigoneri)
  * 
@@ -25,9 +25,9 @@
  */
 
 !function($) {
-    
+
   $.fn.infoBox = function(options) {
-        
+
     var settings = {
       url : null,
       html : null,
@@ -42,25 +42,25 @@
       arrow_size: 7,
       top_bottom_arrow_offset: 30,
     }
-    
+
     return this.each(function() {
       if (options)
         $.extend(settings, options);
-      
+
       var icon = null;
       if (settings.add_icon) {
         if (settings.icon_text) {
           icon_url = settings.url ? settings.url.replace(' ', '') : '#'; 
-          icon = $('<a href="' + icon_url + '" class="info-box-icon">' + settings.icon_text + '</span>');
+          icon = $('<a href="' + icon_url + '" class="info-box-icon">' + settings.icon_text + '</a>');
         }
         else if (settings.icon_image_url) {
           icon = $('<img src="' + settings.icon_image_url + '" class="info-box-icon" />');
         }
-    
+
         if (settings.icon_in_element)
           $(this).append(icon);
         else
-          $(this).after(icon);      
+          $(this).after(icon);
       }
       else {
         if (settings.icon_in_element) 
@@ -68,20 +68,20 @@
         else 
           icon = $(this).siblings('.info-box-icon')[0];
       }
-      
+
       var createInfoBox = function() {
         var box = $('<div class="info-box">'+
         '<div class="arrow '+ settings.position +'"></div>' +
         '<div class="content"></div>' +
         '</div>').hide().appendTo('body');
         $('.content', box).css('width', settings.width + 'px');
-        
+
         if (settings.html)
           $('.content', box).append(settings.html);
-    
+
         settings.box = box;
       }
-      
+
       var showInfoBox = function() {
         var box = settings.box;
         var icon_top = $(icon).offset().top;
@@ -90,10 +90,10 @@
         var icon_width = $(icon).width(); 
         var box_height = $(box).outerHeight(true);
         var box_width = $(box).outerWidth(true);
-        
+
         var top_bottom_offset = settings.top_bottom_arrow_offset;
         var arrow_offset = settings.offset + settings.arrow_size;
-                
+
         switch (settings.position) {
           case 'bottom':
             $('.arrow', box).css('top', '-' + settings.arrow_size + 'px');
@@ -111,10 +111,10 @@
             $('.arrow', box).css('bottom', '-' + settings.arrow_size + 'px');
             $(box).css({top: icon_top - box_height - arrow_offset, left: icon_left - top_bottom_offset + (icon_width/2)});
         }
-        
+
         $(box).show();
       }
-      
+
       if (settings.url) {
         var selector_split_index = settings.url.indexOf(' ');
         var fecth_url = settings.url;
@@ -123,7 +123,7 @@
           fetch_url = settings.url.substring(0, selector_split_index);
           selector = settings.url.substring(selector_split_index);
         }
-        
+
         $.get(fecth_url, function (response) {
           if (selector) {
             var data = $(response).find(selector);
@@ -139,7 +139,7 @@
       else {
         createInfoBox();
       }
-            
+
       if (settings.always_show) {
         showInfoBox();
       }
@@ -149,7 +149,6 @@
           e.stopPropagation();
           showInfoBox();
         });
-        
         $('body').bind('click', function(){ 
            $(settings.box).hide();
         });
